@@ -62,7 +62,7 @@
 
 <script>
 function showConfirmation() {
-    const name = document.getElementById('name').value;
+    const name = document.querySelector('select[name="name"]').value;
     const date = document.getElementById('date').value;
     const amount = document.querySelector('input[name="amount"]').value + "円";
     const subject = document.querySelector('select[name="subject"]').value;
