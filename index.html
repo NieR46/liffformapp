@@ -87,7 +87,7 @@ function submitForm() {
     const liffId = "2004536508-Z9dxnEq6"; // LIFFのアプリID
     initializeLiff(liffId);
 
-    const name = $('input[name="name"]').val();
+    const name = $('select[name="name"] option:selected').text();
     const date = $('input[name="date"]').val();
     const amount = $('input[name="amount"]').val() + "円";
     const subject = $('select[name="subject"] option:selected').text();
@@ -137,7 +137,7 @@ function submitForm() {
 
         $(function () {
             $('form').submit(function () {
-                const name = $('input[name="name"]').val();
+                const name = $('select[name="name"] option:selected').text();
                 const date    = $('input[name="date"]').val();
                 const amount = $('input[name="amount"]').val()+ "円";
                 const subject  = $('select[name="subject"] option:selected').text();
