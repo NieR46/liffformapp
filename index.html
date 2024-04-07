@@ -75,21 +75,14 @@
         $(function () {
             $('form').submit(function () {
                 const date    = $('input[name="date"]').val();
-                const amount = $('input[name="amount"]').val();
-                const subject  = $('input[name="subject"]').val();
+                const amount = $('input[name="amount"]').val()+ "円";
+                const subject  = $('select[name="subject"] option:selected').text();
                 const comment  = $('input[name="comment"]').val();
-                const msg = `${date}\n${selectedText}\n${amount}\n${comment}`;
+                const msg = `${date}\n${subject}\n${amount}\n${comment}`;
                 sendText(msg);
                 return false;
             });
         });
-
-    function getText() {
-    // 選択されたオプション要素を取得
-    var selectElement = document.getElementById("subject");
-    var selectedText = selectElement.options[selectElement.selectedIndex].text;
-    }
-
     </script>
 
 </body>
