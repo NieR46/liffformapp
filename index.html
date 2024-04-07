@@ -77,8 +77,9 @@
                 const amount = $('input[name="amount"]').val()+ "円";
                 const subject  = $('select[name="subject"] option:selected').text();
                 const comment  = $('input[name="comment"]').val();
-                const msg = `${date}\n${subject}\n${amount}\n${comment}`;
-                sendText(msg);
+                const msg =date + "\n" + subject + "\n" + amount + "\n" + comment;
+                const formattedMsg = msg.split('\n').join('<br>');
+                sendText(formattedMsg);
                 return false;
             });
         });
