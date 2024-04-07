@@ -42,8 +42,10 @@
   <p><strong>科目:</strong> <span id="confirmation-subject" class="form-control w-100 mt-1"></span></p>
   <p><strong>金額:</strong> <span id="confirmation-amount" class="form-control w-100 mt-1"></span></p>
   <p><strong>備考:</strong> <span id="confirmation-comment" class="form-control w-100 mt-1"></span></p>
-  <button onclick="submitForm()" class="btn btn-md btn-secondary">送信</button>
-  <button onclick="cancelConfirmation()" class="btn btn-md btn-secondary">戻る</button>
+<div style="text-align: center;">
+  <button onclick="submitForm()" class="btn btn-lg btn-primary">送信</button>
+  <button onclick="cancelConfirmation()" class="btn btn-lg btn-secondary">戻る</button>
+</div>
 </div>
 
 <script>
@@ -68,6 +70,14 @@ function cancelConfirmation() {
 }
 
 function submitForm() {
+    const date = $('input[name="date"]').val();
+    const amount = $('input[name="amount"]').val() + "円";
+    const subject = $('select[name="subject"] option:selected').text();
+    const comment = $('input[name="comment"]').val();
+    const msg = `${date}\n${subject}\n${amount}\n${comment}`;
+
+    // LINEへのメッセージ送信
+    sendText(msg);
     document.getElementById('input-form').submit();
 }
 </script>
@@ -122,6 +132,5 @@ function submitForm() {
 
 </body>
 </html>
-
 </body>
 </html>
