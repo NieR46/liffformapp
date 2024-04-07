@@ -70,6 +70,9 @@ function cancelConfirmation() {
 }
 
 function submitForm() {
+    const liffId = "2004536508-Z9dxnEq6"; // LIFFのアプリID
+    initializeLiff(liffId);
+    
     const date = $('input[name="date"]').val();
     const amount = $('input[name="amount"]').val() + "円";
     const subject = $('select[name="subject"] option:selected').text();
