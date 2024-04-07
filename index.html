@@ -11,6 +11,14 @@
 
 <!-- 入力画面 -->
 <form id="input-form" class="w-75 mx-auto">
+    <p class="mt-3">入力者</p>
+    <div>
+        <select id="name" class="form-control w-100 mt-1" name="name" required>
+            <option value="">選択してください</option>
+            <option value="瑞季">瑞季</option>
+            <option value="大介">大介</option>
+        </select>
+    </div>
     <p class="mt-3">日付</p>
     <div>
         <input type="date" id="date" class="form-control w-100 mt-1" name="date" required>
@@ -53,11 +61,13 @@
 
 <script>
 function showConfirmation() {
+    const name = document.getElementById('name').value;
     const date = document.getElementById('date').value;
     const amount = document.querySelector('input[name="amount"]').value + "円";
     const subject = document.querySelector('select[name="subject"]').value;
     const comment = document.querySelector('input[name="comment"]').value;
 
+    document.getElementById('confirmation-name').textContent = name;
     document.getElementById('confirmation-date').textContent = date;
     document.getElementById('confirmation-amount').textContent = amount;
     document.getElementById('confirmation-subject').textContent = subject;
@@ -75,12 +85,13 @@ function cancelConfirmation() {
 function submitForm() {
     const liffId = "2004536508-Z9dxnEq6"; // LIFFのアプリID
     initializeLiff(liffId);
-    
+
+    const name = $('input[name="name"]').val();
     const date = $('input[name="date"]').val();
     const amount = $('input[name="amount"]').val() + "円";
     const subject = $('select[name="subject"] option:selected').text();
     const comment = $('input[name="comment"]').val();
-    const msg = `${date}\n${subject}\n${amount}\n${comment}`;
+    const msg = `${name}\n${date}\n${subject}\n${amount}\n${comment}`;
 
     // LINEへのメッセージ送信
     sendText(msg);
@@ -125,11 +136,12 @@ function submitForm() {
 
         $(function () {
             $('form').submit(function () {
+                const name = $('input[name="name"]').val();
                 const date    = $('input[name="date"]').val();
                 const amount = $('input[name="amount"]').val()+ "円";
                 const subject  = $('select[name="subject"] option:selected').text();
                 const comment  = $('input[name="comment"]').val();
-                const msg =`${date}\n${subject}\n${amount}\n${comment}`;
+                const msg = `${name}\n${date}\n${subject}\n${amount}\n${comment}`;
                 sendText(msg);
                 return false;
             });
