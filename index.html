@@ -2,7 +2,7 @@
 <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input Page</title>
+    <title>入力フォーム</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
@@ -10,7 +10,6 @@
 <body>
 
 <!-- 入力画面 -->
-<h2>入力フォーム</h2>
 <form id="input-form" class="w-75 mx-auto">
     <p class="mt-3">日付</p>
     <div>
@@ -39,12 +38,12 @@
 <!-- 確認画面 -->
 <div id="confirmation" style="display: none;">
   <h2>確認画面</h2>
-  <p><strong>日付:</strong> <span id="confirmation-date"></span></p>
-  <p><strong>科目:</strong> <span id="confirmation-subject"></span></p>
-  <p><strong>金額:</strong> <span id="confirmation-amount"></span></p>
-  <p><strong>備考:</strong> <span id="confirmation-comment"></span></p>
-  <button onclick="submitForm()">送信</button>
-  <button onclick="cancelConfirmation()">戻る</button>
+  <p><strong>日付:</strong> <span id="confirmation-date" class="form-control w-100 mt-1"></span></p>
+  <p><strong>科目:</strong> <span id="confirmation-subject" class="form-control w-100 mt-1"></span></p>
+  <p><strong>金額:</strong> <span id="confirmation-amount" class="form-control w-100 mt-1"></span></p>
+  <p><strong>備考:</strong> <span id="confirmation-comment" class="form-control w-100 mt-1"></span></p>
+  <button onclick="submitForm()" class="btn btn-md btn-secondary">送信</button>
+  <button onclick="cancelConfirmation()" class="btn btn-md btn-secondary">戻る</button>
 </div>
 
 <script>
